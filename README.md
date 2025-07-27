@@ -16,17 +16,20 @@ poi-plugin-sink-alert
 ```
 ![image](https://github.com/SADevil7729/poi-plugin-sink-alert/blob/main/documentImage/2.png?raw=true)
 
+![image](https://github.com/SADevil7729/poi-plugin-sink-alert/blob/main/documentImage/3.png?raw=true)
+
 ## 2.全屏版大破警告
 ```
 將大破警告變成全屏，並且無法點擊背景就撤銷。
 ```
+![image](https://github.com/SADevil7729/poi-plugin-sink-alert/blob/main/documentImage/4.png?raw=true)
 
-## 1.羊羊版大破警告
+## 3.羊羊版大破警告
 ```
 (1)利用圖片遮住進擊按鈕，達到阻擋大破進擊功能。
 (2)可以點擊右下角文字以繼續進擊。
 ```
-
+![image](https://github.com/SADevil7729/poi-plugin-sink-alert/blob/main/documentImage/5.png?raw=true)
 
 
 

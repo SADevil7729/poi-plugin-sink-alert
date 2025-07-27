@@ -50,8 +50,8 @@ export const BlockBattleTypeAlert = (num) => {
         DeltaY = 9
     }
 
-    str.style.width = (GameWidth * 155 / 1200 + 15).toString() + 'px'
-    str.style.height = (GameHeight * 45 / 720 + 15).toString() + 'px'
+    str.style.width = (GameWidth * 155 / 1200 + 20).toString() + 'px'
+    str.style.height = (GameHeight * 45 / 720 + 20).toString() + 'px'
 
     if (NowEventFlag == 0) {
         //如果是非活動期間

@@ -1,0 +1,24 @@
+{
+  "name": "poi-plugin-sink-alert",
+  "version": "1.0.2",
+  "description": "Prevent from miss click and sink.",
+  "main": "index.es",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "SADevil7729",
+    "url": "https://github.com/SADevil7729"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "poi-plugin-navy-album": "^1.7.17",
+    "sweetalert2": "^11.22.2"
+  },
+  "poiPlugin": {
+    "title": "陣型阻擋",
+    "description": "Prevent from miss click and sink.",
+    "icon": "fa/hotel",
+    "priority": -1
+  }
+}

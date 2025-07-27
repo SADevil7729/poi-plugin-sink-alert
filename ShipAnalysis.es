@@ -1,7 +1,7 @@
 import { BlockBattleTypeAlert, removeBlockBattleTypeAlert } from './Block.es'
 export const windowMode = true;
 import Swal from 'sweetalert2'
-import { getShipImgPathHelper } from './node_modules/poi-plugin-navy-album/game-misc/magic.es'
+import { getShipImgPathHelper } from 'poi-plugin-navy-album'
 import './Style.css'
 const ServerAddress = getStore('info.server.ip')
 const { PLUGIN_PATH, PLUGIN_EXTRA_PATH } = window

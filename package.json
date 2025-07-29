@@ -1,6 +1,6 @@
 {
   "name": "poi-plugin-sink-alert",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Prevent from miss click and sink.",
   "main": "index.es",
   "scripts": {

@@ -108,15 +108,15 @@ class Settings extends PureComponent {
                 }}
             >
                 <Checkbox
-                    id="poi-plugin-sink-alert-settings-SheepAlert"
+                    id="poi-plugin-sink-alert-settings-RecommendBattleType"
                     onChange={this.HandleButtonChange}
-                    checked={this.SheepAlertFlag}
+                    checked={this.RecommendBattleTypeFlag}
                 />
                 <Tooltip
-                    content="大破後把進擊按鈕遮起來"
+                    content="把不建議選的陣型遮起來"
                     position={Position.BOTTOM}
                 >
-                    <div>{"羊羊版大破警告"}</div>
+                    <div>{"海域建議陣型"}</div>
                 </Tooltip>
                 <br />
                 <Checkbox
@@ -133,15 +133,15 @@ class Settings extends PureComponent {
                 </Tooltip>
                 <br />
                 <Checkbox
-                    id="poi-plugin-sink-alert-settings-RecommendBattleType"
+                    id="poi-plugin-sink-alert-settings-SheepAlert"
                     onChange={this.HandleButtonChange}
-                    checked={this.RecommendBattleTypeFlag}
+                    checked={this.SheepAlertFlag}
                 />
                 <Tooltip
-                    content="把不建議選的陣型遮起來"
+                    content="大破後把進擊按鈕遮起來"
                     position={Position.BOTTOM}
                 >
-                    <div>{"海域建議陣型"}</div>
+                    <div>{"羊羊版大破警告"}</div>
                 </Tooltip>
             </div>
         )

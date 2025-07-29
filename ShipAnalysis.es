@@ -210,116 +210,18 @@ function FindEnemy(RashinFlag, path) {
     }
     if (NodeNum == 1) {
         DelayTime += 900
-        //戰鬥結束/剛從母港出擊之後，路上經過幾個節點才遇到戰鬥(每次戰鬥後歸0)，用來計算delaytime
+        //戰鬥結束/剛從母港出擊之後，路上經過 NodeNum 個節點才遇到戰鬥(每次戰鬥後歸0)，用來計算delaytime
     }
     NodeNum = 0
 
     //陣型推薦
     //部分海域特例
     var SpecialFlag = false
-    if (Sortie.sortieMapId == "52") {
-        if ([3, 12].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-        else if ([9, 19].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-    }
-    else if (Sortie.sortieMapId == "74") {
-        if ([5].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-        else if ([4, 13, 17].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-    }
-    else if (Sortie.sortieMapId == "75") {
-        if ([1].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-    }
-    else if (Sortie.sortieMapId == "64") {
-        if ([6, 15, 17, 19].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-        else if ([4, 7, 9, 16].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-    }
-    else if (Sortie.sortieMapId == "65") {
-        if ([7, 15].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-        else if ([8, 16].includes(Sortie.currentNode)) {
-            //例外：全員均為潛水艇或防空100%
-            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
-                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
-                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-                SpecialFlag = true
-            }
-        }
-    }
-    else if (Sortie.sortieMapId == "16") {
+
+    if (Sortie.sortieMapId == "16") {
         if ([8, 11, 12, 16].includes(Sortie.currentNode)) {
             //例外：全員均為潛水艇或防空100%
+            //1=単縦陣, 2=複縦陣, 3=輪形陣, 4=梯形陣, 5=単横陣, 6=警戒陣
             if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
                 setTimeout(BlockBattleTypeAlert, DelayTime, 1);
                 setTimeout(BlockBattleTypeAlert, DelayTime, 2);
@@ -338,13 +240,7 @@ function FindEnemy(RashinFlag, path) {
         }
     }
     else if (Sortie.sortieMapId == "41") {
-        if ([4].includes(Sortie.currentNode)) {
-            //例外：潛水艇和水上混編
-            setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-            setTimeout(BlockBattleTypeAlert, DelayTime, 3);
-            SpecialFlag = true
-        }
-        else if ([11].includes(Sortie.currentNode)) {
+        if ([4, 11].includes(Sortie.currentNode)) {
             //例外：潛水艇和水上混編
             setTimeout(BlockBattleTypeAlert, DelayTime, 1);
             setTimeout(BlockBattleTypeAlert, DelayTime, 3);
@@ -377,7 +273,17 @@ function FindEnemy(RashinFlag, path) {
         }
     }
     else if (Sortie.sortieMapId == "52") {
-        if ([4].includes(Sortie.currentNode)) {
+        if ([3, 9, 12, 19].includes(Sortie.currentNode)) {
+            //例外：全員均為潛水艇或防空100%
+            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
+                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
+                SpecialFlag = true
+            }
+        }
+        else if ([4].includes(Sortie.currentNode)) {
             //例外：潛水艇和水上混編
             if (EnemySubmarineNum >= 1) {
                 setTimeout(BlockBattleTypeAlert, DelayTime, 1);
@@ -394,13 +300,7 @@ function FindEnemy(RashinFlag, path) {
         }
     }
     else if (Sortie.sortieMapId == "53") {
-        if ([9, 10, 11, 14, 20, 21].includes(Sortie.currentNode)) {
-            //例外：夜戰
-            setTimeout(BlockBattleTypeAlert, DelayTime, 3);
-            setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-            SpecialFlag = true
-        }
-        else if ([16, 21].includes(Sortie.currentNode)) {
+        if ([9, 10, 11, 14, 16, 20, 21].includes(Sortie.currentNode)) {
             //例外：夜戰
             setTimeout(BlockBattleTypeAlert, DelayTime, 3);
             setTimeout(BlockBattleTypeAlert, DelayTime, 5);
@@ -415,13 +315,7 @@ function FindEnemy(RashinFlag, path) {
             setTimeout(BlockBattleTypeAlert, DelayTime, 5);
             SpecialFlag = true
         }
-        else if ([6, 8, 19].includes(Sortie.currentNode)) {
-            //例外：夜戰
-            setTimeout(BlockBattleTypeAlert, DelayTime, 3);
-            setTimeout(BlockBattleTypeAlert, DelayTime, 5);
-            SpecialFlag = true
-        }
-        else if ([10, 20].includes(Sortie.currentNode)) {
+        else if ([6, 8, 10, 19, 20].includes(Sortie.currentNode)) {
             //例外：夜戰
             setTimeout(BlockBattleTypeAlert, DelayTime, 3);
             setTimeout(BlockBattleTypeAlert, DelayTime, 5);
@@ -443,7 +337,17 @@ function FindEnemy(RashinFlag, path) {
         }
     }
     else if (Sortie.sortieMapId == "64") {
-        if ([5].includes(Sortie.currentNode)) {
+        if ([4, 6, 7, 9, 15, 16, 17, 19].includes(Sortie.currentNode)) {
+            //例外：全員均為潛水艇或防空100%
+            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
+                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
+                SpecialFlag = true
+            }
+        }
+        else if ([5].includes(Sortie.currentNode)) {
             //例外：潛水艇和水上混編
             setTimeout(BlockBattleTypeAlert, DelayTime, 1);
             setTimeout(BlockBattleTypeAlert, DelayTime, 3);
@@ -452,7 +356,17 @@ function FindEnemy(RashinFlag, path) {
         }
     }
     else if (Sortie.sortieMapId == "65") {
-        if ([10].includes(Sortie.currentNode)) {
+        if ([7, 8, 15, 16].includes(Sortie.currentNode)) {
+            //例外：全員均為潛水艇或防空100%
+            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
+                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
+                SpecialFlag = true
+            }
+        }
+        else if ([10].includes(Sortie.currentNode)) {
             //例外：夜戰
             setTimeout(BlockBattleTypeAlert, DelayTime, 3);
             setTimeout(BlockBattleTypeAlert, DelayTime, 5);
@@ -469,7 +383,17 @@ function FindEnemy(RashinFlag, path) {
         }
     }
     else if (Sortie.sortieMapId == "74") {
-        if ([10, 12, 20].includes(Sortie.currentNode)) {
+        if ([4, 5, 13, 17].includes(Sortie.currentNode)) {
+            //例外：全員均為潛水艇或防空100%
+            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
+                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
+                SpecialFlag = true
+            }
+        }
+        else if ([12, 20].includes(Sortie.currentNode)) {
             //例外：潛水艇和水上混編
             setTimeout(BlockBattleTypeAlert, DelayTime, 1);
             setTimeout(BlockBattleTypeAlert, DelayTime, 2);
@@ -477,12 +401,20 @@ function FindEnemy(RashinFlag, path) {
             setTimeout(BlockBattleTypeAlert, DelayTime, 4);
             SpecialFlag = true
         }
-        else if ([18].includes(Sortie.currentNode)) {
+        else if ([10, 18].includes(Sortie.currentNode)) {
             //例外：潛水艇和水上混編
-            setTimeout(BlockBattleTypeAlert, DelayTime, 1);
-            setTimeout(BlockBattleTypeAlert, DelayTime, 2);
-            setTimeout(BlockBattleTypeAlert, DelayTime, 3);
-            setTimeout(BlockBattleTypeAlert, DelayTime, 4);
+            if (SortieSubmarineNum == SortieShipNum) {
+                //如果我方全員都是潛水艇
+                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 3);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
+            } else {
+                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 3);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
+            }
             SpecialFlag = true
         }
         else if ([16, 21, 22, 23].includes(Sortie.currentNode)) {
@@ -490,6 +422,18 @@ function FindEnemy(RashinFlag, path) {
             setTimeout(BlockBattleTypeAlert, DelayTime, 3);
             setTimeout(BlockBattleTypeAlert, DelayTime, 5);
             SpecialFlag = true
+        }
+    }
+    else if (Sortie.sortieMapId == "75") {
+        if ([1].includes(Sortie.currentNode)) {
+            //例外：全員均為潛水艇或防空100%
+            if (SortieSubmarineNum + SotrieEquip274Num < SortieShipNum) {
+                setTimeout(BlockBattleTypeAlert, DelayTime, 1);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 2);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 4);
+                setTimeout(BlockBattleTypeAlert, DelayTime, 5);
+                SpecialFlag = true
+            }
         }
     }
     if (SpecialFlag == false && Sortie.nextEnemyInfo != undefined && Sortie.nextEnemyInfo.length >= 1 && Sortie.nextEnemyInfo[0].api_ship_ids != undefined) {
@@ -561,8 +505,6 @@ function GetShipType(ID) {
         return null
     }
 }
-
-
 export const KeyResponse = (e) => {
     if (e.key == "q") {
         CleanBlockImage()
@@ -573,24 +515,3 @@ export const MouseResponse = (e) => {
         CleanBlockImage()
     }
 }
-
-/*
-export const handleGameRequest = (e) => {
-    const { path, body } = e.detail;
-    switch (path) {
-        case '/kcsapi/api_req_map/start': {
-        }
-        case '/kcsapi/api_req_map/next': {
-        }
-        case '/kcsapi/api_req_battle_midnight/sp_midnight': {
-        }
-        case '/kcsapi/api_port/port': {
-        }
-        case '/kcsapi/api_req_sortie/ld_airbattle': {
-        }
-        case '/kcsapi/api_req_sortie/battle': {
-            CleanBlockImage()
-            break;
-        }
-    }
-}*/
